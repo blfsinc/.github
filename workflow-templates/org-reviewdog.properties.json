@@ -7,12 +7,15 @@
     "Shell",
     "HCL",
     "Python",
-    "JSON"
+    "JSON",
+    "C++",
+    "C"
   ],
   "filePatterns": [
     "package.json$",
     "^Dockerfile",
     ".*\\.md$",
-    ".py$"
+    ".py$",
+    ".c*"
   ]
 }

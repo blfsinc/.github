@@ -88,3 +88,14 @@ jobs:
           reporter: github-check
           level: info
 
+  cpplint:
+    name: runner / cpplint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: reviewdog/action-cpplint@master
+        with:
+          github_token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+          reporter: github-pr-review
+          flags: --linelength=50
+          filter: "-readability/braces,-whitespace/braces,-whitespace/comments,-whitespace/indent,-whitespace/newline,-whitespace/operators,-whitespace/parens"
