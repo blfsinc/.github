@@ -1,0 +1,29 @@
+name: Org Terraform Docs
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+  workflow_call:
+    secrets:
+      token:
+        required: false
+
+jobs:
+  terraform-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: terraformdocs / README.md
+        uses: terraform-docs/gh-actions@v0.11.0
+        with:
+          working-dir: . # Can change to module location or where .tf file are
+          output-file: README.md # Readme needs injection location <!--- BEGIN_TF_DOCS ---><!--- END_TF_DOCS --->
+          out-method: inject
+          args: --sort-by required
+          indention: 3
+          git-push: true
+          git-commit-message: "terraform-docs: automated action"

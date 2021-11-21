@@ -1,0 +1,14 @@
+{
+  "name": "Org TerraformDocs",
+  "description": "Orginizational TerraformDocs workflow template.",
+  "iconName": "org-terraformdocs-icon",
+  "categories": [
+    "HCL"
+  ],
+  "filePatterns": [
+    ".tf",
+    ".tfvars",
+    ".terraform",
+    "*terraform*"
+  ]
+}
